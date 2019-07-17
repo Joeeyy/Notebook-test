@@ -2,7 +2,7 @@
 
 ## Directions
 
-1. OWASP TOP 10 \[adf\]\(./sdf\)
+1. OWASP TOP 10 
 2. XSS
 3. SQL Injection
 4. CSRF
