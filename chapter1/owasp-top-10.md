@@ -6,7 +6,7 @@
 
 **A3: 敏感数据的泄露\(Sensitive Data Explosure\)**。许多web应用或者API并没有合适地保护包含金融、医疗健康、PII在内的敏感数据。攻击者或许能够通过窃取或者修改这些没有被保护好的数据以实施信用卡诈骗、身份信息窃取或者其他的犯罪行为。敏感信息需要额外的保护，如加密、对与浏览器交互时的格外注意等，以防止被攻击。
 
-**A4: XXE\(XML External Entities\)**。
+**A4: XXE\(XML External Entities\)**。许多老的或者配置的不好的XML处理器会处理XML文件中的外部实体引用。
 
 **A5: 错误的访问控制\(Broken Access Control\)**。
 
@@ -19,6 +19,4 @@
 **A9: 对已知有漏洞的组件的使用\(Using Components with Known Vulnerabilities\)**。
 
 **A10: 不足的日志和监控\(Insufficient Logging & Monitoring\)**。
-
-
 
