@@ -14,9 +14,9 @@
 
 **A7: XSS\(Cross-Site Scripting\)**。XSS漏洞发生在应用没有经过合适的验证或者转义就将不受信的数据引入web页面，或者以用户提供的数据通过能够创建HTML的浏览器API或者JavaScript更新已有的web页面时。XSS使得攻击者能够在受害者的浏览器上执行命令，以达到劫持用户会话、污染web网站或者跳转至恶意网站的目的。
 
-**A8: 不安全的反序列化\(Insecure Deserialization\)**。
+**A8: 不安全的反序列化\(Insecure Deserialization\)**。不安全的反序列化一般会导致远程代码执行。即便反序列化不导致远程代码执行，也可以被用来实施包含重放攻击、注入攻击、提权攻击在内的一系列攻击。
 
-**A9: 对已知有漏洞的组件的使用\(Using Components with Known Vulnerabilities\)**。
+**A9: 对已知有漏洞的组件的使用\(Using Components with Known Vulnerabilities\)**。组件们，如库、框架、或是其他软件的模块，是以和应用程序相同的权限运行的。如果一个有漏洞的组件被利用了，那么可能导致重大数据丢失或者整个服务器被拿下。使用有漏洞的组件的应用程序和API可能会使防御失效，使得更多攻击方式成为可能。
 
 **A10: 不足的日志和监控\(Insufficient Logging & Monitoring\)**。
 
