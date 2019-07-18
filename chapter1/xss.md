@@ -31,7 +31,9 @@ fclose($log);
 ?>
 ```
 
-#### 2. 会话劫持
+#### 2. 构造POST或者GET请求
+
+利用插入在用户页面的XSS Payload，以用户的身份发送GET或者POST请求。Javascript可以发送GET、POST类型的请求，POST类型的请求也可以通过AJAX\(XMLHttpRequest或者ActiveXObject\)的方式发送。
 
 #### 3. 钓鱼
 
@@ -42,6 +44,10 @@ fclose($log);
 #### 6. XSS蠕虫
 
 ## 攻击姿势
+
+通过XSS攻击，攻击者能够在用户当前浏览的页面中植入恶意脚本，并进而控制用户浏览器。这些脚本可以被称为攻击Payload。
+
+###### 
 
 ## XSS防御
 
