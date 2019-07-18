@@ -28,7 +28,7 @@ http://www.examplebank.com/withdraw?account=AccountName&amount=1000&for=PayeeNam
 
 ## 防御措施
 
-### 1. 检查Referer字段
+1.  检查Referer字段
 
 HTTP头部中的Referer字段用以标明请求来自于哪一个地址。敏感操作的请求一般都会来自于同域名下，而恶意构造的攻击请求无法保证这一点。
 
@@ -36,9 +36,9 @@ HTTP头部中的Referer字段用以标明请求来自于哪一个地址。敏感
 
 也有可能攻击者会制造空Referer的请求。
 
-### 2. 添加校验token
 
 
+1. 添加校验token
 
 > 参考:
 >
