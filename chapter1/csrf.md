@@ -28,12 +28,22 @@ http://www.examplebank.com/withdraw?account=AccountName&amount=1000&for=PayeeNam
 
 ## 防御措施
 
+### 1. 检查Referer字段
+
+HTTP头部中的Referer字段用以标明请求来自于哪一个地址。敏感操作的请求一般都会来自于同域名下，而恶意构造的攻击请求无法保证这一点。
+
+这种防御措施简单易实现，仅需要在关键访问的地方添加一个校验。但是无法保证浏览器的可靠性，也存在攻击者攻击浏览器，篡改其Referer字段的可能。
+
+也有可能攻击者会制造空Referer的请求。
+
+### 2. 添加校验token
+
 
 
 > 参考:
 >
 > 1. [Wikipedia: 跨站请求伪造](https://zh.wikipedia.org/wiki/跨站请求伪造)
-> 2.
+> 2. 《白帽子讲Web安全》
 
 
 
