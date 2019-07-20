@@ -1,4 +1,4 @@
-# 最长公共子序列
+# 最长公共子序列hhhh
 
 ## 问题描述
 
@@ -130,7 +130,7 @@ def lcs(x,y):
             else:
                 c[i][j] = c[i][j-1]
                 b[i][j] = "←"
-    
+
     for i in range(x_len+1):
         line = ""
         for j in range(y_len+1):
