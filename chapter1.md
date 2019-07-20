@@ -7,6 +7,8 @@
 3. SQL Injection
 4. CSRF
 5. SSRF
-6. 
+
+
+
 
 
