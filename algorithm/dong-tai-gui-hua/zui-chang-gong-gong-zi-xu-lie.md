@@ -32,20 +32,37 @@ $$X = <x_1,x_2,...,x_m>, Y = <y_1,y_2,...,y_n>$$
 
 
 $$
-C[i,j] = \left\{  
-\begin{aligned}
+C[i,j]=
+\begin{cases}
+0, & & 当 i = 0 或 j = 0 \\
 
-0, & & 当 i = 0 或 j = 0
+C[i-1,j-1]+1,& & 当 i,j>0且x_i = y_j \\
 
-C\[i-1,j-1\]+1,& & 当 i,j &gt; 0且x_i = y_j
-
-max\(C\[i-1,j\],C\[i,j-1\]\),& & 当i,j&gt;0且xi \ne yj
-
-\end{aligned}
+max(C[i-1,j],C[i,j-1]),& & 当i,j>0且xi \ne yj
+\end{cases}
 $$
 
 
 ## 解题代码
+
+**伪代码1，求最长公共子序列长度，递归**
+
+```
+LCS(x,y,i,j)
+if x[i] = y[j]:
+    then c[i,j] = LCS(x,y,i-1,j-1) + 1
+    else c[i,j] = max(LCS(x,y,i-1,j),
+                      LCS(x,y,i,j-1))
+```
+
+**伪代码2，求最长公共子序列长度，非递归**
+
+```
+LCS(x,y)
+m = length(x)
+n = length(y)
+
+```
 
 
 
