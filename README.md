@@ -1,10 +1,4 @@
 # Chores Book
 
-Preface of this Chores Book.
-
-This is a test string. ABCDE
-
-
-
-Fuck
+This could be the preface of my Chores Book.
 
