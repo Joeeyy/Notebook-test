@@ -2,7 +2,5 @@
 
 Preface of this Chores Book.
 
-
-
-This is a test string.
+This is a test string. ABCDE
 
