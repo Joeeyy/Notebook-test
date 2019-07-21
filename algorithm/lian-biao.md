@@ -129,7 +129,7 @@ ll = linked_list([1,2,3,4,5])
 
 链表的两两翻转，如`1->2->3->4`翻转为`2->1->4->3`：
 
-```
+```py
     def reverse2(self):
         if self.length <= 1:
             return 
