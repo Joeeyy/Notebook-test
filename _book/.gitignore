@@ -26,6 +26,7 @@ node_modules
 
 .DS_Store
 
+_book
 book.pdf
 book.epub
 book.mobi
