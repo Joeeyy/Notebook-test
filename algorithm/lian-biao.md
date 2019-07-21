@@ -147,5 +147,7 @@ ll = linked_list([1,2,3,4,5])
             if current_
 ```
 
+> 更多关于链表考点可以参考：[面试精选：链表问题集锦](http://wuchong.me/blog/2014/03/25/interview-link-questions/)
+
 
 
