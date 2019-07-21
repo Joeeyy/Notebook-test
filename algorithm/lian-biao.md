@@ -43,5 +43,24 @@ class linked_list:
 ll = linked_list([1,2,3,4,5])
 ```
 
+打印链表信息（包含链表遍历）：
+
+```py
+    def printInfo(self):
+        info_format = "LinkedList with length {}: {}"
+        node_str = ""
+        node_num = 0
+        current_node = self.head_node
+        while current_node.next_node:
+            node_num += 1
+            current_node = current_node.next_node
+            if current_node.next_node == None:
+                node_str += "{}".format(current_node.node_value)
+            else:
+                node_str += "{}->".format(current_node.node_value)
+
+        print(info_format.format(node_num,node_str))
+```
+
 
 
