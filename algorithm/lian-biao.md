@@ -44,7 +44,7 @@ class linked_list:
 ll = linked_list([1,2,3,4,5])
 ```
 
-打印链表信息（包含链表遍历）：
+打印链表信息（包含链表遍历，能遍历也就意味着能查找元素）：
 
 ```py
     def printInfo(self):
@@ -71,7 +71,7 @@ ll = linked_list([1,2,3,4,5])
             raise Exception("invalid index")
         if index > self.length:
             raise Exception("Out of bound")
-        
+
         current_node = self.head_node
         counter = 0
         while(current_node.next_node):
@@ -93,7 +93,7 @@ ll = linked_list([1,2,3,4,5])
             raise Exception("invalid index")
         if index >= self.length:
             raise Exception("Out of bound")
-        
+
         current_node = self.head_node
         counter = 0
         while(current_node.next_node):
@@ -104,6 +104,47 @@ ll = linked_list([1,2,3,4,5])
                 return
             current_node = current_node.next_node
             counter += 1
+```
+
+链表翻转：
+
+```py
+    def reverse(self):
+        if self.length <= 1:
+            return 
+
+        prev_node = self.head_node
+        current_node = prev_node.next_node
+        while(current_node):
+            next_node = current_node.next_node
+            if prev_node.node_value == None:
+                current_node.next_node = None
+            else:
+                current_node.next_node = prev_node
+            prev_node = current_node
+            current_node = next_node
+
+        self.head_node.next_node = prev_node
+```
+
+链表的两两翻转，如`1->2->3->4`翻转为`2->1->4->3`：
+
+```
+    def reverse2(self):
+        if self.length <= 1:
+            return 
+
+        prev_node = self.head_node
+        current_node = prev_node.next_node
+
+        while(current_node.next_node):
+            next_next_node = current_node.next_node.next_node
+            prev_node.next_node = current_node.next_node
+            prev_node.next_node.next_node = current_node
+            prev_node = prev_node.next_node.next_node
+            current_node.next_node = next_next_node
+            current_node = next_next_node
+            if current_
 ```
 
 
