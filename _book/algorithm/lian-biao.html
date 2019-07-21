@@ -383,6 +383,7 @@
 <pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">linked_list</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,seq=[])</span>:</span>
         self.head_node = Node()
+        self.length = len(seq)
         current_node = <span class="hljs-keyword">None</span>
         <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> seq:
             tmp_node = Node(e)
@@ -410,6 +411,43 @@
                 node_str += <span class="hljs-string">&quot;{}-&gt;&quot;</span>.format(current_node.node_value)
 
         print(info_format.format(node_num,node_str))
+</code></pre>
+<p>&#x63D2;&#x5165;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-py">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertAt</span><span class="hljs-params">(self,index, value)</span>:</span>
+        <span class="hljs-keyword">if</span> index &lt; <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;invalid index&quot;</span>)
+        <span class="hljs-keyword">if</span> index &gt; self.length:
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;Out of bound&quot;</span>)
+
+        current_node = self.head_node
+        counter = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">while</span>(current_node.next_node):
+            <span class="hljs-keyword">if</span> counter == index:
+                tmp_node = Node(node_value=value)
+                tmp_node.next_node = current_node.next_node
+                current_node.next_node = tmp_node
+                self.length += <span class="hljs-number">1</span>
+                <span class="hljs-keyword">return</span>
+            current_node = current_node.next_node
+            counter += <span class="hljs-number">1</span>
+</code></pre>
+<p>&#x5220;&#x9664;&#x5143;&#x7D20;&#xFF1A;</p>
+<pre><code class="lang-py">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deleteAt</span><span class="hljs-params">(self,index)</span>:</span>
+        <span class="hljs-keyword">if</span> index &lt; <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;invalid index&quot;</span>)
+        <span class="hljs-keyword">if</span> index &gt;= self.length:
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;Out of bound&quot;</span>)
+
+        current_node = self.head_node
+        counter = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">while</span>(current_node.next_node):
+            <span class="hljs-keyword">if</span> counter == index:
+                tmp_node = current_node.next_node.next_node
+                current_node.next_node = tmp_node
+                self.length -= <span class="hljs-number">1</span>
+                <span class="hljs-keyword">return</span>
+            current_node = current_node.next_node
+            counter += <span class="hljs-number">1</span>
 </code></pre>
 
                                 
@@ -454,7 +492,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"链表","level":"1.3.2","depth":2,"next":{"title":"链表遍历","level":"1.3.2.1","depth":3,"path":"algorithm/lian-biao/lian-biao-bian-li.md","ref":"algorithm/lian-biao/lian-biao-bian-li.md","articles":[]},"previous":{"title":"最长公共子序列","level":"1.3.1.1","depth":3,"path":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","ref":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/lian-biao.md","mtime":"2019-07-21T11:13:35.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T11:04:07.551Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"链表","level":"1.3.2","depth":2,"next":{"title":"链表遍历","level":"1.3.2.1","depth":3,"path":"algorithm/lian-biao/lian-biao-bian-li.md","ref":"algorithm/lian-biao/lian-biao-bian-li.md","articles":[]},"previous":{"title":"最长公共子序列","level":"1.3.1.1","depth":3,"path":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","ref":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/lian-biao.md","mtime":"2019-07-21T11:32:01.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T11:04:07.551Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
