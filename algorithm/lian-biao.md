@@ -27,6 +27,7 @@ class Node:
 class linked_list:
     def __init__(self,seq=[]):
         self.head_node = Node()
+        self.length = len(seq)
         current_node = None
         for e in seq:
             tmp_node = Node(e)
@@ -60,6 +61,49 @@ ll = linked_list([1,2,3,4,5])
                 node_str += "{}->".format(current_node.node_value)
 
         print(info_format.format(node_num,node_str))
+```
+
+插入元素：
+
+```py
+    def insertAt(self,index, value):
+        if index < 0:
+            raise Exception("invalid index")
+        if index > self.length:
+            raise Exception("Out of bound")
+        
+        current_node = self.head_node
+        counter = 0
+        while(current_node.next_node):
+            if counter == index:
+                tmp_node = Node(node_value=value)
+                tmp_node.next_node = current_node.next_node
+                current_node.next_node = tmp_node
+                self.length += 1
+                return
+            current_node = current_node.next_node
+            counter += 1
+```
+
+删除元素：
+
+```py
+    def deleteAt(self,index):
+        if index < 0:
+            raise Exception("invalid index")
+        if index >= self.length:
+            raise Exception("Out of bound")
+        
+        current_node = self.head_node
+        counter = 0
+        while(current_node.next_node):
+            if counter == index:
+                tmp_node = current_node.next_node.next_node
+                current_node.next_node = tmp_node
+                self.length -= 1
+                return
+            current_node = current_node.next_node
+            counter += 1
 ```
 
 
