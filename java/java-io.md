@@ -76,3 +76,11 @@ while( !bufferFull(bytesRead)) {
 
 
 
+字节流InputStream - FileInputStream\(\): 从文件系统中的某个文件读入字节。
+
+字节流InputStream - BufferedInputStream\(\): 缓冲流。
+
+字节流OutputStream - BufferedOutputStream\(\): 缓冲流。
+
+字节流OutputStream - FileOutputStream\(\): 用于写入字节。
+
