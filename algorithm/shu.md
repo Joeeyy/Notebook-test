@@ -149,7 +149,6 @@ def postOrderTraverse2(rootNode):
                     return
             leftVisitedStack.append(currentNode)
             currentNode = currentNode.right
-
 ```
 
 #### 层次遍历
@@ -170,8 +169,6 @@ def levelTraverse(rootNode):
         if node.right != None:
             queue.append(node.right)
 ```
-
-
 
 
 
