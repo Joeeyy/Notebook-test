@@ -67,7 +67,27 @@ public class TestRunnableExample {
 
 ### 继承Thread类
 
-通过继承Thread类，并重写run\(\)方法实现。
+通过继承Thread类，并重写run\(\)方法实现。代码与前面类似，`implements Runnable`替换为`extends Thread`。
+
+Thread类的一些方法：
+
+1. public void start\(\): 使线程开始运行，调用线程的run\(\)方法。
+2. public void run\(\): 如果该县城市使用独立的Runnable运行对象构造的，则调用该Runnable对象的run方法，否则该方法不执行任何操作并返回。
+3. public final void setName\(String name\): 设置线程名称。
+4. public final void setPriority\(int prioirty\): 设置线程优先级。
+5. public final void setDaemon\(boolean on\): 将该线程标记为守护线程或用户线程。
+6. public final void join\(long millisec\): 等待该线程终止的时长为millisec毫秒。
+7. public void interruput\(\): 中断该线程。
+8. public final boolean isAlive\(\): 判断线程是否存活。
+9. public static void yield\(\): 暂停当前正在执行的线程对象，并执行其他线程。
+10. public static void sleep\(long millisec\): 休眠指定的毫秒数。
+11. public static boolean holdsLock\(Object x\): 当且仅当当前线程在指定的对象上保持监视锁时返回true。
+12. public static currentThread\(\): 返回当前正在执行的线程对象的引用。
+13. public static void dumpStack\(\): 将当前线程的堆栈跟踪打印至标准错误流。
+
+### Callable & Future 
+
+
 
 
 
