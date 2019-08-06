@@ -12,8 +12,6 @@
 
 **Exited**: 线程任务执行完毕，退出。
 
-
-
 关于阻塞：
 
 1. 等待阻塞：线程调用了wait\(\)方法，等待唤醒的信号。
@@ -38,18 +36,18 @@ import java.util.*;
 class RunnableExample implements Runnable {
     private Thread t;
     private String name;
-    
+
     RunnableExample(String name){
         this.name = name;
         System.out.println("Creating thread with name: " + this.name);
     }
-    
+
     public void run(){
         System.out.println("Running thread with name: " + this.name);
         // do sth.
         System.out.println("Exiting thread with name: " + this.name);
     }
-    
+
     public void start(){
         System.out.println("Starting thread with name: " + this.name);
         if (t == null){
@@ -67,7 +65,9 @@ public class TestRunnableExample {
 }
 ```
 
+### 继承Thread类
 
+通过继承Thread类，并重写run\(\)方法实现。
 
 
 
