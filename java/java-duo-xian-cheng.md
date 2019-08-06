@@ -85,9 +85,48 @@ Thread类的一些方法：
 12. public static currentThread\(\): 返回当前正在执行的线程对象的引用。
 13. public static void dumpStack\(\): 将当前线程的堆栈跟踪打印至标准错误流。
 
-### Callable & Future 
+### Callable & Future
 
+首先我们需要定义一个实现了Callable接口的类，其中Callable的返回值类型为泛型。Callable实际上定义了线程执行的任务。然后创建该类的一个实例，并使用FutureTask对其进行封装，得到一个FutureTask的实例。将该FutureTask实例作为Thread的参数传入，启动一个新的线程。最后通过调用FutureTask实例的get方法验证任务执行。
 
+```java
+import java.util.*;
+import java.util.concurrent.*;
+
+class CallableDemo implements Callable<Integer> {
+    public Integer call() throws Exception {
+        int i = 0;
+        for (;i<100;i++){
+            System.out.println(Thread.currentThread().getName() + " " + i);
+        }
+        return i;
+    }
+}
+
+class CallableTest {
+    public static void main(String args[]){
+        CallableDemo cd = new CallableDemo();
+        FutureTask ft = new FutureTask<>(cd);
+
+        for (int i=0;i<100;i++){
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+            if (i == 20){
+                new Thread(ft, "threadWithReturnedValue").start();
+            }
+        }
+
+        try{
+            System.out.println("subThread: " + ft.get());
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        catch (ExecutionException e){
+            e.printStackTrace();
+        }
+    }
+}
+```
 
 
 
