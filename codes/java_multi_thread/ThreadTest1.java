@@ -14,6 +14,7 @@ class RunnableDemo implements Runnable{
         try{
             for (int i=0;i<5;i++){
                 System.out.println("Thread: " + this.threadName + ", " + i);
+                Thread.sleep(50);
             }
         }
         catch (InterruptedException e){
