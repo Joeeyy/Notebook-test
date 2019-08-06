@@ -18,7 +18,7 @@
 * [Java](java.md)
   * [JVM 原理](java/jvm-yuan-li.md)
   * [Java IO](java/java-io.md)
-  * Java 多线程
+  * [Java 多线程](java/java-duo-xian-cheng.md)
   * Java 网络编程
   * [Spring 框架](java/spring-kuang-jia.md)
   * MyBatis 框架
