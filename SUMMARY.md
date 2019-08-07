@@ -11,6 +11,7 @@
 * [Algorithm](algorithm.md)
   * [动态规划](algorithm/dong-tai-gui-hua.md)
     * [最长公共子序列](algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md)
+    * [背包问题](algorithm/dong-tai-gui-hua/bei-bao-wen-ti.md)
   * [链表](algorithm/lian-biao.md)
   * [树](algorithm/shu.md)
 * [iOS](ios.md)
