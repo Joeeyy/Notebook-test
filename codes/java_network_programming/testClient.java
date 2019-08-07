@@ -1,4 +1,6 @@
 import java.util.*;
+import java.net.*;
+import java.io.*;
 
 class testClient {
     public static void main(String args[]){
@@ -17,7 +19,7 @@ class testClient {
             DataInputStream in = new DataInputStream(inFromServer);
             System.out.println("Response from server: " + in.readUTF());
 
-            client.close()
+            client.close();
         }
         catch (IOException e){
             e.printStackTrace();

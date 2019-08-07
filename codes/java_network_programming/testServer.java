@@ -11,16 +11,26 @@ class testServer extends Thread{
     }
 
     public void run(){
-        System.out.println("Waiting for connection: " + serverSocket.getLocalPort());
-
-    }
-    catch (SocketTimeoutException e){
-        System.out.println("Server timeout.");
-        break;
-    }
-    catch (IOException e){
-        e.printStackTrace();
-        break;
+        while (true){
+            try{
+                System.out.println("Waiting for connection: " + serverSocket.getLocalPort());
+                Socket server = serverSocket.accept();
+                System.out.println("Address of remote client: " + server.getRemoteSocketAddress());
+                DataInputStream in = new DataInputStream(server.getInputStream());
+                System.out.println(in.readUTF());
+                DataOutputStream out = new DataOutputStream(server.getOutputStream());
+                out.writeUTF("Thanks for connection: " + server.getLocalSocketAddress() + "\nGoodbye!");
+                server.close();
+            }
+            catch (SocketTimeoutException e){
+                System.out.println("Server timeout.");
+                break;
+            }
+            catch (IOException e){
+                e.printStackTrace();
+                break;
+            }
+        }
     }
 
     public static void main(String args[]){
