@@ -45,7 +45,7 @@ SSRF形成的原因大都是由于服务器端提供了从其他服务器应用�
 5. 利用Enclosed Alphanumerics。
 6. 利用句号，会被自动替换为点号。
 7. 利用特殊地址`http://0/`。
-8. 利用如`dict`、`gophar`、`sftp`、`tftp`、`ldap`等协议。
+8. 利用如`dict`、`gopher`、`sftp`、`tftp`、`ldap`等协议。
 
 ## DNS Rebinding及其防范
 
