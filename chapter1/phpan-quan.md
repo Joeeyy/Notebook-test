@@ -4,7 +4,7 @@
 
 PHP中常见导致文件包含漏洞的函数：`include()`、`include_once`_、_`require()`_、_`require_once()`、`fopen()`、`readfile()`。
 
-当使用以上前四个函数时，被包含的文件会被作为PHP代码执行，PHP内核不会判断其实际上是何种文件。1\)
+当使用以上前四个函数时，被包含的文件会被作为PHP代码执行，PHP内核不会判断其实际上是何种文件。
 
 > 1\) include与require的区别  
 > 它们语句相同，错误处理方面有所不同。当被包含的文件不存在时，require会产生致命错误E\_COMPILE\_ERROR从而停止脚本的执行，而include只会生成警告E\_WARNING，脚本会继续执行。
@@ -158,7 +158,7 @@ array\_map\(\)：遍历数组并执行指定函数名的函数。
 
 ## 0x03 php伪协议
 
-php://input，代表访问请求的原始数据。以POST请求为例，php://input可以获取POST请求的数据。但是不能处理`multipart/form-data`类型的请求。相比于`$HTTPRAWPOST`_``DATA来说对内存压力小，且无需配置。需要`allow``_``url_inclucde`。``
+php://input，代表访问请求的原始数据。以POST请求为例，php://input可以获取POST请求的数据。但是不能处理`multipart/form-data`类型的请求。相比于``$HTTPRAWPOSTDATA来说对内存压力小，且无需配置。需要`allowurl_inclucde`。``
 
 php://filter，一种元封装器，设计用于数据流打开时的筛选过滤应用，一般使用以下参数：
 
