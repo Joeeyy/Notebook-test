@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>动态规划 · GitBook</title>
+        <title>树 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.html" />
+    <link rel="next" href="../ios.html" />
     
     
-    <link rel="prev" href="../algorithm.html" />
+    <link rel="prev" href="lian-biao.html" />
     
 
     </head>
@@ -239,7 +239,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="dong-tai-gui-hua.html">
+        <li class="chapter " data-level="1.3.1" data-path="dong-tai-gui-hua.html">
             
                 <a href="dong-tai-gui-hua.html">
             
@@ -297,7 +297,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="shu.html">
+        <li class="chapter active" data-level="1.3.3" data-path="shu.html">
             
                 <a href="shu.html">
             
@@ -494,7 +494,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >动态规划</a>
+        <a href=".." >树</a>
     </h1>
 </div>
 
@@ -509,12 +509,155 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x52A8;&#x6001;&#x89C4;&#x5212;">&#x52A8;&#x6001;&#x89C4;&#x5212;</h1>
-<h2 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h2>
-<h2 id="&#x5B50;&#x95EE;&#x9898;">&#x5B50;&#x95EE;&#x9898;</h2>
-<ol>
-<li>&#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;</li>
-</ol>
+                                <h1 id="&#x6811;">&#x6811;</h1>
+<h2 id="&#x4E8C;&#x53C9;&#x6811;">&#x4E8C;&#x53C9;&#x6811;</h2>
+<h3 id="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5B9A;&#x4E49;">&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5B9A;&#x4E49;</h3>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#x8282;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, value, left=None, right=None)</span>:</span>
+        print(<span class="hljs-string">&quot;new TreeNode %d&quot;</span>%value)
+        self.value = value
+        self.left = left
+        self.right = right
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setLeft</span><span class="hljs-params">(self, left)</span>:</span>
+        self.left = left
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setRight</span><span class="hljs-params">(self, right)</span>:</span>
+        self.right = right
+</code></pre>
+<p>&#x518D;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x8282;&#x70B9;&#xFF0C;&#x5C06;&#x5176;&#x62FC;&#x63A5;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#xFF1A;</p>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&quot;tree, Binary Tree... &quot;</span>)
+    treeNode1 = TreeNode(<span class="hljs-number">1</span>)
+    treeNode2 = TreeNode(<span class="hljs-number">2</span>)
+    treeNode3 = TreeNode(<span class="hljs-number">3</span>)
+    treeNode4 = TreeNode(<span class="hljs-number">4</span>)
+    treeNode5 = TreeNode(<span class="hljs-number">5</span>)
+    treeNode6 = TreeNode(<span class="hljs-number">6</span>)
+    treeNode7 = TreeNode(<span class="hljs-number">7</span>)
+    treeNode8 = TreeNode(<span class="hljs-number">8</span>)
+
+    treeNode1.setLeft(treeNode2)
+    treeNode1.setRight(treeNode3)
+    treeNode2.setLeft(treeNode4)
+    treeNode2.setRight(treeNode5)
+    treeNode5.setLeft(treeNode7)
+    treeNode5.setRight(treeNode8)
+    treeNode3.setRight(treeNode6)
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;treeNode1&#x5C31;&#x662F;&#x5176;&#x6839;&#x8282;&#x70B9;&#x3002;</p>
+<h3 id="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;">&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;</h3>
+<h4 id="&#x524D;&#x5E8F;&#x904D;&#x5386;">&#x524D;&#x5E8F;&#x904D;&#x5386;</h4>
+<pre><code class="lang-py"><span class="hljs-string">&apos;&apos;&apos;
+root left right
+&apos;&apos;&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">preOrderTraverse</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+    <span class="hljs-comment">#print(&quot;start preOrderTraverse from treeNode - %d&quot;%treeNode.value)</span>
+    print(rootNode.value, end=<span class="hljs-string">&quot; &quot;</span>)
+    preOrderTraverse(rootNode.left)
+    preOrderTraverse(rootNode.right)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">preOrderTraverse2</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+
+    stack = []
+    currentNode = rootNode
+    <span class="hljs-keyword">while</span>(len(stack)&gt;<span class="hljs-number">0</span> <span class="hljs-keyword">or</span> currentNode != <span class="hljs-keyword">None</span>):
+        <span class="hljs-keyword">if</span> currentNode != <span class="hljs-keyword">None</span>:
+            print(currentNode.value, end=<span class="hljs-string">&quot; &quot;</span>)
+            stack.append(currentNode)
+            currentNode = currentNode.left
+        <span class="hljs-keyword">else</span>:
+            currentNode = stack.pop().right
+</code></pre>
+<h4 id="&#x4E2D;&#x5E8F;&#x904D;&#x5386;">&#x4E2D;&#x5E8F;&#x904D;&#x5386;</h4>
+<pre><code class="lang-py"><span class="hljs-string">&apos;&apos;&apos;
+left root right
+&apos;&apos;&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">middleOrderTraverse</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+
+    middleOrderTraverse(rootNode.left)
+    print(rootNode.value, end=<span class="hljs-string">&quot; &quot;</span>)
+    middleOrderTraverse(rootNode.right)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">middleOrderTraverse2</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+
+    stack = []
+    currentNode = rootNode
+
+    <span class="hljs-keyword">while</span>(len(stack)!=<span class="hljs-number">0</span> <span class="hljs-keyword">or</span> currentNode!=<span class="hljs-keyword">None</span>):
+        <span class="hljs-keyword">if</span> currentNode != <span class="hljs-keyword">None</span>:
+            stack.append(currentNode)
+            currentNode = currentNode.left
+        <span class="hljs-keyword">else</span>:
+            currentNode = stack.pop()
+            print(currentNode.value, end=<span class="hljs-string">&quot; &quot;</span>)
+            currentNode = currentNode.right
+</code></pre>
+<h4 id="&#x540E;&#x5E8F;&#x904D;&#x5386;">&#x540E;&#x5E8F;&#x904D;&#x5386;</h4>
+<pre><code class="lang-py"><span class="hljs-string">&apos;&apos;&apos;
+left right root
+&apos;&apos;&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">postOrderTraverse</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+
+    postOrderTraverse(rootNode.left)
+    postOrderTraverse(rootNode.right)
+    print(rootNode.value, end=<span class="hljs-string">&quot; &quot;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">postOrderTraverse2</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+
+    stack = []
+    leftVisitedStack = []
+    currentNode = rootNode
+    fromRight = <span class="hljs-number">0</span>
+    counter = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">while</span>(len(stack)!=<span class="hljs-number">0</span> <span class="hljs-keyword">or</span> currentNode != <span class="hljs-keyword">None</span>):
+        counter += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span> currentNode != <span class="hljs-keyword">None</span>:
+            stack.append(currentNode)
+            currentNode = currentNode.left
+        <span class="hljs-keyword">else</span>:
+            currentNode = stack[<span class="hljs-number">-1</span>]
+            <span class="hljs-keyword">while</span> len(leftVisitedStack) &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> currentNode == leftVisitedStack[<span class="hljs-number">-1</span>]:
+                print(currentNode.value, end=<span class="hljs-string">&quot; &quot;</span>)
+                stack.pop()
+                leftVisitedStack.pop()
+                <span class="hljs-keyword">if</span> len(stack) &gt; <span class="hljs-number">0</span>:
+                    currentNode = stack[<span class="hljs-number">-1</span>]
+                <span class="hljs-keyword">else</span>:
+                    <span class="hljs-keyword">return</span>
+            leftVisitedStack.append(currentNode)
+            currentNode = currentNode.right
+</code></pre>
+<h4 id="&#x5C42;&#x6B21;&#x904D;&#x5386;">&#x5C42;&#x6B21;&#x904D;&#x5386;</h4>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">levelTraverse</span><span class="hljs-params">(rootNode)</span>:</span>
+    <span class="hljs-keyword">if</span> rootNode == <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span>
+
+    queue = []
+    queue.append(rootNode)
+
+    <span class="hljs-keyword">while</span>(len(queue) &gt; <span class="hljs-number">0</span>):
+        node = queue.pop(<span class="hljs-number">0</span>)
+        print(node.value, end=<span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-keyword">if</span> node.left != <span class="hljs-keyword">None</span>:
+            queue.append(node.left)
+        <span class="hljs-keyword">if</span> node.right != <span class="hljs-keyword">None</span>:
+            queue.append(node.right)
+</code></pre>
 
                                 
                                 </section>
@@ -542,12 +685,12 @@
 
             
                 
-                <a href="../algorithm.html" class="navigation navigation-prev " aria-label="Previous page: Algorithm">
+                <a href="lian-biao.html" class="navigation navigation-prev " aria-label="Previous page: 链表">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.html" class="navigation navigation-next " aria-label="Next page: 最长公共子序列">
+                <a href="../ios.html" class="navigation navigation-next " aria-label="Next page: iOS">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -558,7 +701,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"动态规划","level":"1.3.1","depth":2,"next":{"title":"最长公共子序列","level":"1.3.1.1","depth":3,"path":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","ref":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","articles":[]},"previous":{"title":"Algorithm","level":"1.3","depth":1,"path":"algorithm.md","ref":"algorithm.md","articles":[{"title":"动态规划","level":"1.3.1","depth":2,"path":"algorithm/dong-tai-gui-hua.md","ref":"algorithm/dong-tai-gui-hua.md","articles":[{"title":"最长公共子序列","level":"1.3.1.1","depth":3,"path":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","ref":"algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md","articles":[]},{"title":"背包问题","level":"1.3.1.2","depth":3,"path":"algorithm/dong-tai-gui-hua/bei-bao-wen-ti.md","ref":"algorithm/dong-tai-gui-hua/bei-bao-wen-ti.md","articles":[]}]},{"title":"链表","level":"1.3.2","depth":2,"path":"algorithm/lian-biao.md","ref":"algorithm/lian-biao.md","articles":[]},{"title":"树","level":"1.3.3","depth":2,"path":"algorithm/shu.md","ref":"algorithm/shu.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","livereload"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/dong-tai-gui-hua.md","mtime":"2019-07-20T07:12:42.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-13T13:46:52.922Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"树","level":"1.3.3","depth":2,"next":{"title":"iOS","level":"1.4","depth":1,"path":"ios.md","ref":"ios.md","articles":[]},"previous":{"title":"链表","level":"1.3.2","depth":2,"path":"algorithm/lian-biao.md","ref":"algorithm/lian-biao.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","livereload"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algorithm/shu.md","mtime":"2019-08-02T09:24:56.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-13T13:46:52.922Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
