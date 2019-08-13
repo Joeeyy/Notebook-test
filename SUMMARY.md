@@ -9,6 +9,7 @@
   * [SSRF](chapter1/ssrf.md)
   * [反序列化漏洞](chapter1/fan-xu-lie-hua-lou-dong.md)
   * [文件包含](chapter1/wen-jian-bao-han.md)
+  * [XXE](chapter1/xxe.md)
 * [Algorithm](algorithm.md)
   * [动态规划](algorithm/dong-tai-gui-hua.md)
     * [最长公共子序列](algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md)
