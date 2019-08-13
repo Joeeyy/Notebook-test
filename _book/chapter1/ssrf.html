@@ -194,6 +194,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.7" data-path="xxe.html">
+            
+                <a href="xxe.html">
+            
+                    
+                    XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="phpan-quan.html">
+            
+                <a href="phpan-quan.html">
+            
+                    
+                    PHP安全
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -394,40 +420,40 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" >
+        <li class="chapter " data-level="1.6.6" data-path="../java/mybatis-kuang-jia.html">
             
-                <span>
+                <a href="../java/mybatis-kuang-jia.html">
             
                     
                     MyBatis 框架
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.6.7" >
+        <li class="chapter " data-level="1.6.7" data-path="../java/struts-kuang-jia.html">
             
-                <span>
+                <a href="../java/struts-kuang-jia.html">
             
                     
                     Struts 框架
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.6.8" >
+        <li class="chapter " data-level="1.6.8" data-path="../java/tomcat-kuang-jia.html">
             
-                <span>
+                <a href="../java/tomcat-kuang-jia.html">
             
                     
                     Tomcat 框架
             
-                </span>
+                </a>
             
 
             
@@ -525,9 +551,34 @@
 <li>&#x5229;&#x7528;Enclosed Alphanumerics&#x3002;</li>
 <li>&#x5229;&#x7528;&#x53E5;&#x53F7;&#xFF0C;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x66FF;&#x6362;&#x4E3A;&#x70B9;&#x53F7;&#x3002;</li>
 <li>&#x5229;&#x7528;&#x7279;&#x6B8A;&#x5730;&#x5740;<code>http://0/</code>&#x3002;</li>
-<li>&#x5229;&#x7528;&#x5982;<code>dict</code>&#x3001;<code>gophar</code>&#x3001;<code>sftp</code>&#x3001;<code>tftp</code>&#x3001;<code>ldap</code>&#x7B49;&#x534F;&#x8BAE;&#x3002;</li>
+<li>&#x5229;&#x7528;&#x5982;<code>dict</code>&#x3001;<code>gopher</code>&#x3001;<code>sftp</code>&#x3001;<code>tftp</code>&#x3001;<code>ldap</code>&#x7B49;&#x534F;&#x8BAE;&#x3002;</li>
 </ol>
-<h2 id="dns-rebinding&#x9632;&#x8303;">DNS Rebinding&#x9632;&#x8303;</h2>
+<h2 id="dns-rebinding&#x53CA;&#x5176;&#x9632;&#x8303;">DNS Rebinding&#x53CA;&#x5176;&#x9632;&#x8303;</h2>
+<p>&#x4F20;&#x7EDF;SSRF&#x8FC7;&#x6EE4;&#x5668;&#x5927;&#x81F4;&#x601D;&#x8DEF;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x7684;url&#xFF0C;&#x4ECE;url&#x4E2D;&#x63D0;&#x53D6;host&#x3002;</li>
+<li>&#x901A;&#x8FC7;DNS&#x89E3;&#x6790;&#x83B7;&#x5F97;host&#x5BF9;&#x5E94;&#x7684;IP&#x3002;</li>
+<li>&#x68C0;&#x6D4B;IP&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF08;&#x662F;&#x5426;&#x542B;&#x6709;&#x5185;&#x7F51;&#x5730;&#x5740;&#xFF09;&#x3002;</li>
+<li>&#x82E5;3&#x901A;&#x8FC7;&#x5219;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x3002;</li>
+<li><strong>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x8DF3;&#x8F6C;&#xFF0C;&#x5219;&#x53D6;&#x51FA;&#x8DF3;&#x8F6C;&#x94FE;&#x63A5;&#x4ECE;&#x7B2C;&#x4E00;&#x6B65;&#x5F00;&#x59CB;&#x6267;&#x884C;</strong>&#x3002;</li>
+<li>&#x5224;&#x65AD;&#x5B8C;&#x6210;&#x540E;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x8FC7;&#x7A0B;&#x5B58;&#x5728;&#x7F3A;&#x9677;&#x3002;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x6709;&#x4E24;&#x6B21;DNS&#x89E3;&#x6790;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E00;&#x6B21;&#x5728;&#x6B65;&#x9AA4;2&#xFF0C;&#x4E00;&#x6B21;&#x5728;&#x6B65;&#x9AA4;3&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E24;&#x6B21;DNS<br>&#x8BF7;&#x6C42;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5DEE;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x5DEE;&#x8FDB;&#x884C;&#x7ED5;&#x8FC7;&#x3002;</p>
+<p>&#x653B;&#x51FB;&#x8005;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;DNS&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x901A;&#x8FC7;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x5B50;&#x57DF;&#x540D;&#x6307;&#x5411;&#x8BE5;&#x670D;&#x52A1;&#x5668;&#x3002;&#x5F53;&#x5916;&#x90E8;&#x5C1D;&#x8BD5;&#x89E3;&#x6790;&#x8BE5;&#x5B50;&#x57DF;&#x540D;&#x662F;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x89E3;&#x6790;&#x6211;&#x4EEC;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5408;&#x6CD5;&#x7684;&#x5916;&#x7F51;&#x5730;&#x5740;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B21;&#x8FD4;&#x56DE;&#x5185;&#x7F51;&#x5730;&#x5740;&#x3002;&#x5F53;&#x7136;&#x4E3A;&#x4E86;&#x9632;&#x6B62;DNS&#x7F13;&#x5B58;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;DNS&#x8BB0;&#x5F55;&#x7684;TTL&#x4E3A;0&#x3002;</p>
+<p><strong>DNS&#x8BF7;&#x6C42;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;</strong>&#xFF1A;</p>
+<ol>
+<li>&#x67E5;&#x8BE2;&#x672C;&#x5730;DNS&#x670D;&#x52A1;&#x5668;<code>/etc/resolv.conf</code></li>
+<li>&#x5982;&#x679C;&#x6709;&#x7F13;&#x5B58;&#x5219;&#x8FD4;&#x56DE;&#x7F13;&#x5B58;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x82E5;&#x65E0;&#x5219;&#x7EE7;&#x7EED;</li>
+<li>&#x8BF7;&#x6C42;&#x8FDC;&#x7A0B;DNS&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</li>
+</ol>
+<p><strong>&#x5173;&#x4E8E;DNS&#x7F13;&#x5B58;</strong>&#xFF1A;</p>
+<p>&#x5728;MacOS&#x548C;Windows&#x4E0A;&#xFF0C;&#x4E3A;&#x4E86;&#x52A0;&#x5FEB;HTTP&#x8BBF;&#x95EE;&#x901F;&#x5EA6;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5BF9;DNS&#x8BB0;&#x5F55;&#x7F13;&#x5B58;&#xFF0C;&#x4F46;&#x662F;&#x5728;Linux&#x7CFB;&#x5217;&#x4E0A;&#xFF0C;&#x9664;&#x975E;&#x8FD0;&#x884C;&#x4E86;nscd&#x7B49;&#x8F6F;&#x4EF6;&#xFF0C;&#x5426;&#x5219;&#x9ED8;&#x8BA4;&#x4E0D;&#x7F13;&#x5B58;DNS&#x8BB0;&#x5F55;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;IP&#x4E3A;<code>8.8.8.8</code>&#x7684;DNS&#x5730;&#x5740;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x3002;</p>
+<p><strong>&#x9632;&#x5FA1;</strong></p>
+<ol>
+<li>&#x5F3A;&#x884C;&#x5B9E;&#x73B0;DNS&#x7F13;&#x5B58;&#x3002;</li>
+<li>Host&#x767D;&#x540D;&#x5355;&#x3002;</li>
+</ol>
 
                                 
                                 </section>
@@ -571,7 +622,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SSRF","level":"1.2.5","depth":2,"next":{"title":"反序列化漏洞","level":"1.2.6","depth":2,"path":"chapter1/fan-xu-lie-hua-lou-dong.md","ref":"chapter1/fan-xu-lie-hua-lou-dong.md","articles":[]},"previous":{"title":"CSRF","level":"1.2.4","depth":2,"path":"chapter1/csrf.md","ref":"chapter1/csrf.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","livereload"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ssrf.md","mtime":"2019-08-02T17:22:10.947Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T06:08:42.108Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SSRF","level":"1.2.5","depth":2,"next":{"title":"反序列化漏洞","level":"1.2.6","depth":2,"path":"chapter1/fan-xu-lie-hua-lou-dong.md","ref":"chapter1/fan-xu-lie-hua-lou-dong.md","articles":[]},"previous":{"title":"CSRF","level":"1.2.4","depth":2,"path":"chapter1/csrf.md","ref":"chapter1/csrf.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","livereload"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/ssrf.md","mtime":"2019-08-13T07:39:04.265Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-13T13:45:51.816Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
