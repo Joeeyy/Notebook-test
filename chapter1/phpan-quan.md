@@ -2,14 +2,14 @@
 
 ## 0x00 文件包含漏洞
 
-PHP中常见导致文件包含漏洞的函数：`include()`、`include_once`_、`require()`、`require_once()`_、`fopen()`、`readfile()`。
+PHP中常见导致文件包含漏洞的函数：`include()`、`include_once`_、_`require()`_、_`require_once()`、`fopen()`、`readfile()`。
 
 当使用以上前四个函数时，被包含的文件会被作为PHP代码执行，PHP内核不会判断其实际上是何种文件。1\)
 
-> 1\) include与require的区别
+> 1\) include与require的区别  
 > 它们语句相同，错误处理方面有所不同。当被包含的文件不存在时，require会产生致命错误E\_COMPILE\_ERROR从而停止脚本的执行，而include只会生成警告E\_WARNING，脚本会继续执行。
 >
-> 2\) include\_once 与 include区别
+> 2\) include\_once 与 include区别  
 > 使用include\_once进行文件包含时会首先检查要导入的文件是否已经在该程序的其他地方导入过了，若有则不会继续导入。
 
 以上方式完成攻击有以下两个条件：
@@ -58,7 +58,7 @@ PHP内核是由C语言实现的，因此使用了C中的一些字符串处理函
 
 **前提**：
 
-1. allow_url_open开启
+1. allow\_url\_open开启
 
 ```php
 <?php
@@ -93,7 +93,7 @@ PHP中`unset()`函数智能销毁局部变量，如果想要销毁全局变量�
 <?php
     $auth = '0';
     extract($_GET);
-    
+
     if ($auth == 1){
         echo "you're in";
     }
@@ -107,7 +107,7 @@ PHP中`unset()`函数智能销毁局部变量，如果想要销毁全局变量�
 <?php
     $auth = '0';
     import_request_variables('G');
-    
+
     if ($auth == 1){
         echo "you're in";
     }
@@ -123,7 +123,7 @@ PHP中`unset()`函数智能销毁局部变量，如果想要销毁全局变量�
     $var = 'init';
     parse_str($_SERVER['QUERY_STRING']);
     print $var;
-    
+
 ?>
 
 // 4. 遍历初始化变量
@@ -155,4 +155,19 @@ preg\_replace\(\)：第一个参数的正则式结尾有`/e`时可以执行
 array\_map\(\)：遍历数组并执行指定函数名的函数。
 
 反序列化
+
+## 0x03 php伪协议
+
+php://input，代表访问请求的原始数据。以POST请求为例，php://input可以获取POST请求的数据。但是不能处理`multipart/form-data`类型的请求。相比于`$HTTPRAWPOST`_``DATA来说对内存压力小，且无需配置。需要`allow``_``url_inclucde`。``
+
+php://filter，一种元封装器，设计用于数据流打开时的筛选过滤应用，一般使用以下参数：
+
+1. resource=要过滤的数据流，该参数必须
+2. read=读链的筛选列表，该参数可选，可以设置一个或多个过滤器名称，以`|`分隔。
+3. write=写链的筛选列表，该参数可选，可以设置一个或多个过滤器名称，以`|`分隔。
+4. 任何没有以`2`或`3`的筛选器列表会视情况应用于读或写链。
+
+举例，`php://filter/read=convert.base64-encode/resource=test.php`。
+
+zip://archive.zip\#dir/file.txt，可以访问压缩文件中的某一特定子文件。
 
