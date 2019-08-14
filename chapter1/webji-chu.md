@@ -12,5 +12,7 @@ Session: 存储于服务器，大小一般来说没有上限，可以存出任�
 
 SOP，Same Origin Policy，即同源策略。
 
+## Web目录信息获取
+
 
 
