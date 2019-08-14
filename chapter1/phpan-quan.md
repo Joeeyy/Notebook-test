@@ -158,7 +158,7 @@ array\_map\(\)：遍历数组并执行指定函数名的函数。
 
 ## 0x03 php伪协议
 
-php://input，代表访问请求的原始数据。以POST请求为例，php://input可以获取POST请求的数据。但是不能处理`multipart/form-data`类型的请求。相比于``$HTTPRAWPOSTDATA来说对内存压力小，且无需配置。需要`allowurl_inclucde`。``
+php://input，代表访问请求的原始数据。以POST请求为例，php://input可以获取POST请求的数据。但是不能处理`multipart/form-data`类型的请求。相比于``$HTTPRAWPOSTDATA来说对内存压力小，且无需配置。需要`allow_url_inclucde`。``
 
 php://filter，一种元封装器，设计用于数据流打开时的筛选过滤应用，一般使用以下参数：
 
