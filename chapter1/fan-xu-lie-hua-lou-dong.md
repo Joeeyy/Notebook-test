@@ -14,6 +14,39 @@
 
 ## PHP中的反序列化漏洞
 
+以下是一个简单的`serialize()`和`unserialized()`的demo：
+
+```php
+<?php
+    class test{
+        var $a = "123";
+        function print_info(){
+            echo "class test\n";
+        }
+    }
+
+    $test1 = new test();
+    $test1->print_info();    //正常打印"class test"
+    $serialized_string = serialize($test1);    //执行序列化操作
+    echo $serialized_string. "\n";    //O:4:"test":1:{s:1:"a";s:3:"123";}
+    $test2 = unserialize($serialized_string);
+    $test2->print_info();    //正常打印"class test"，反序列化成功。
+?>
+```
+
+在PHP的序列化和反序列化过程中，有一些魔术函数会被自动调用，举例如下：
+
+```php
+<?php
+class test{
+    var $a = "123";
+    function print_info(){
+        echo "class test\n";
+    }
+}
+?>
+```
+
 ## Java中的反序列化漏洞
 
 > 引自勾[陈安全实验室](http://www.polaris-lab.com/index.php/archives/450/)
