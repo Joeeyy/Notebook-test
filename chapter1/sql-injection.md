@@ -79,6 +79,8 @@ version\(\) - 数据库版本号。
 
 ### 编码利用
 
+当数据库使用宽字节编码时，Web语言可能考虑不到，会将双字节字符认为是两个字符，而多数情况下为了安全起见，会开启`magicquotesgpc`或者使用`addslashes()`函数对特殊字符进行转义，比如单引号和双引号。
+
 ### 流程
 
 ### 防御
@@ -109,9 +111,24 @@ $val3 = 'var3';
 $stmt->execute();
 ```
 
+通过对输入变量与查询参数的绑定，将特定的输入限制在参数内，不会使得SQL语义产生变化。
+
 #### 使用存储过程
 
+Java中使用存储过程的例子：
 
+```java
+String custname = request.getParameter("customerName"); // check please
+try{
+    CallableStatement cs = connection.prepareCall("{call sp_getAccountBalance(?)}");
+    cs.setString(1, custname);
+    ResultSet results = cs.executeQuery();
+} catch (SQLException se) {
+    // log error
+}
+```
+
+对比预编译语句的使用发现有些类似，不过这里需要预先定义存储过程`sp_getAccountBalance(?)`，然后使用`call`调用存储过程，在进行变量绑定。不过我们还是需要避免在存储过程中使用动态SQL语句，否则也有可能出现SQL注入。
 
 #### 检查数据类型
 
