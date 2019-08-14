@@ -2,7 +2,7 @@
 
 ## 0x00 文件包含漏洞
 
-PHP中常见导致文件包含漏洞的函数：`include()`、`include_once`_、_`require()`_、_`require_once()`、`fopen()`、`readfile()`。
+PHP中常见导致文件包含漏洞的函数：`include()`、`include_once`、`require()`、`require_once()`、`fopen()`、`readfile()`。
 
 当使用以上前四个函数时，被包含的文件会被作为PHP代码执行，PHP内核不会判断其实际上是何种文件。
 
