@@ -11,6 +11,7 @@
   * [反序列化漏洞](chapter1/fan-xu-lie-hua-lou-dong.md)
   * [XXE](chapter1/xxe.md)
   * [PHP安全](chapter1/phpan-quan.md)
+  * [CSP](chapter1/csp.md)
 * [Algorithm](algorithm.md)
   * [动态规划](algorithm/dong-tai-gui-hua.md)
     * [最长公共子序列](algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md)
