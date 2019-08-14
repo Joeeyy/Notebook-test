@@ -75,9 +75,21 @@ version\(\) - 数据库版本号。
 
 写文件：?id = 5 union select ... into outfile '/file' 或者 into dumpfile 'file'，dumpfile相比outfile更适合二进制文件。
 
-### 
+### 攻击存储过程
+
+### 编码利用
 
 ### 流程
 
+### 防御
 
+#### 使用预编译语句
+
+#### 使用存储过程
+
+#### 检查数据类型
+
+#### 使用安全的函数
+
+各种Web语言都会实现一些编码函数，帮助对抗有可能出现的攻击，比如`addslashes()`，`mysqlrealescape`_`string()`_以及`mysqlescapestring`等等。中间函数考虑到数据库连接的编码，因此相比其他两种比较不可能出现款字节注入漏洞。
 
