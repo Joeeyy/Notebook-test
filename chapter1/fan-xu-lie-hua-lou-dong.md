@@ -43,6 +43,7 @@ class test{
     function print_info(){
         echo "class test\n";
     }
+
 }
 ?>
 ```
