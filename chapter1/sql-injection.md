@@ -75,6 +75,8 @@ version\(\) - 数据库版本号。
 
 写文件：?id = 5 union select ... into outfile '/file' 或者 into dumpfile 'file'，dumpfile相比outfile更适合二进制文件。
 
+### 
+
 ### 流程
 
 
