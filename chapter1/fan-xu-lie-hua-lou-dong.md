@@ -64,6 +64,8 @@
 ?>
 ```
 
+除此之外，还有sleep函数，在序列化之前会被调用，返回需要序列化的关键属性，toString函数会在尝试直接打印一个对象时被调用。
+
 ## Java中的反序列化漏洞
 
 > 引自勾[陈安全实验室](http://www.polaris-lab.com/index.php/archives/450/)
