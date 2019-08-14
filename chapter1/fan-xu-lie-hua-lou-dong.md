@@ -62,7 +62,6 @@
     $test2->print_info();
     // 程序结束，对象析构，调用destruct
 ?>
-
 ```
 
 ## Java中的反序列化漏洞
