@@ -85,11 +85,39 @@ version\(\) - 数据库版本号。
 
 #### 使用预编译语句
 
+预编译语句事实上是对变量的一种绑定，举例Java中的预编译：
+
+```java
+String custname = request.getParameter("customerName"); // 这里的custname需要好好被检查
+// custname的检查
+String query = "SELECT account_balance FROM user_data WHERE username = ?";
+
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setString(1,custname);
+ResultSet results = pstmt.executeQuery();
+```
+
+在`query`中，我们利用`?`替代查询参数，使得攻击者无法改变SQL逻辑，即便是插入了`abc' or '1'='1`尝试闭合引号也只会被当做username的参数执行。再举一个PHP的例子：
+
+```php
+$query = "INSERT INTO myCity (Name, CountryCode, District) VALUES (?,?,?)";
+$stmt = $mysqli->prepare($qeury);
+$stmt->bind_param("sss",$var1,$var2,$var3);
+$val1 = 'var1';
+$val2 = 'var2';
+$val3 = 'var3';
+$stmt->execute();
+```
+
 #### 使用存储过程
+
+
 
 #### 检查数据类型
 
+很多时候SQL查询需要的只是一个数字型的id，所以我们可以通过限制数据类型过滤掉大部分攻击。
+
 #### 使用安全的函数
 
-各种Web语言都会实现一些编码函数，帮助对抗有可能出现的攻击，比如`addslashes()`，`mysql_real_escape_string()`以及`mysql_escape_string()`等等。中间函数考虑到数据库连接的编码，因此相比其他两种比较不可能出现款字节注入漏洞。
+各种Web语言都会实现一些编码函数，帮助对抗有可能出现的攻击，比如`addslashes()`，`mysql_real_escape_string()`以及`mysql_escape_string()`等等。中间函数考虑到数据库连接的编码，因此相比其他两种比较不可能出现款字节注入漏洞。基本上就是对特殊字符利用反斜杠转义处理。
 
