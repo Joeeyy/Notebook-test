@@ -8,6 +8,8 @@ SQL Injection，即SQL注入，是指攻击者利用服务端对用户输入处�
 
 ### 错误回显注入
 
+如果Web服务器开启了错误回显，通过对输入内容的报错回显可以推理SQL逻辑从而很容易构造Payload。
+
 ### 盲注
 
 ### Timing Attack
