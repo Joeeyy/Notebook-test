@@ -53,6 +53,8 @@ fclose($log);
 
 ### 1. HttpOnly
 
+可以对Cookie设置HttpOnly属性，从而禁止JavaScript对该类型Cookie的访问，从而防止了攻击者利用XSS窃取用户Cookie。
+
 ### 2. 输入检查
 
 ### 3. 输出检查
