@@ -91,5 +91,5 @@ version\(\) - 数据库版本号。
 
 #### 使用安全的函数
 
-各种Web语言都会实现一些编码函数，帮助对抗有可能出现的攻击，比如`addslashes()`，`mysqlrealescape`_`string()`_以及`mysqlescapestring`等等。中间函数考虑到数据库连接的编码，因此相比其他两种比较不可能出现款字节注入漏洞。
+各种Web语言都会实现一些编码函数，帮助对抗有可能出现的攻击，比如`addslashes()`，`mysql_real_escape_string()`以及`mysql_escape_string()`等等。中间函数考虑到数据库连接的编码，因此相比其他两种比较不可能出现款字节注入漏洞。
 
