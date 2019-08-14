@@ -4,6 +4,15 @@
         function print_info(){
             echo "class test\n";
         }
+        function __wakeup(){
+            echo "wake up \n";
+        }
+        function __construct(){
+            echo "construct \n";
+        }
+        function __destruct(){
+            echo "destruct \n";
+        }
     }
 
     $test1 = new test();
