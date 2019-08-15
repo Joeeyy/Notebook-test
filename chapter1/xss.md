@@ -67,7 +67,40 @@ XSS Payload一般会包含很多正常用户不会输入的字符，我们可以
 
 ### 3. 输出检查
 
+可以通过安全的编码函数，在将文本输出到页面前对文本进行编码，避免XSS攻击发生。
 
+**HTMLEncode**
+
+HTMLEncode将特殊字符转换为其他编码。
+
+```
+&: &amp;
+<: &lt;
+>: &gt;
+": &quot;
+': &#x27;
+/: &#x2f
+```
+
+在PHP中，函数`htmlentities()`和`htmlspecialchars()`可以满足需求。
+
+**JavaScriptEncode**
+
+Javascriptencode使用反斜线对特殊字符进行转义，在对抗XSS时，要求输出的变量在引号内部。
+
+```
+var x = escapeJavascript($evil);
+var y = '"' + escapeJavascript($evil) + '"';
+
+如果输入$evil = "1;alert(2);",则
+x = 1;alert(2);
+y = "1;alert(2);"
+可以看出x不安全的而y是安全的。
+除了保持在引号内输出变量的习惯之外，还可以通过更加严格的编码保证安全
+通过对数字、字母之外的所有字符采用十六进制编码。
+如本例中x经过编码后：
+x = 1\x3balert\x282\x29;
+```
 
 > 参考：
 >
