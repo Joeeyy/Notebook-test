@@ -26,6 +26,8 @@ Content-Securyti-Policy: policy
 
 default-src: 其他类型资源没有符合自己的策略时使用的资源。
 
+report-uri: 指定地址报告违例。该地址需要接收JSON。
+
 示例：
 
 限制所有内容均来自于同一源，且不包含同源子域名：
@@ -43,7 +45,13 @@ Content-Security-Policy: default-src 'self' *.trusted.com
 允许用户在自己的内容中你包含来自任何源的图片，但是限制音频或视频需从信任的地址获取，所有的脚本必须从特定主机获取可信代码：
 
 ```
-Content-Security-Policy: default-src 'self'; 
+Content-Security-Policy: default-src 'self'; img-src *; media-src media1.com media2.com; script-src userscripts.example.com
+```
+
+限制所有请求必须通过SSL发起：
+
+```
+Content-Security-Policy: default-src https://onlinebanking.jumbobank.com
 ```
 
 ## 针对
