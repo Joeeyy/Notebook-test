@@ -55,6 +55,8 @@ fclose($log);
 
 可以对Cookie设置HttpOnly属性，从而禁止JavaScript对该类型Cookie的访问，从而防止了攻击者利用XSS窃取用户Cookie。
 
+然而除了对Cookie的利用之外，XSS还有很多其他的利用手段。
+
 ### 2. 输入检查
 
 ### 3. 输出检查
