@@ -63,5 +63,15 @@ print_r($data);
 ?>
 ```
 
+**探测内网端口**
+
+攻击内网网站
+
+## 防御
+
+使用开发语言提供的禁用外部实体的方法，如PHP的libxml_disable_entity\_loader\(true\);
+
+过滤用户提交的XML数据，关键词PUBLIC SYSTEM，
+
 
 
