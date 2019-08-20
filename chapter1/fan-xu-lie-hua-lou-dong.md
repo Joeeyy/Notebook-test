@@ -177,5 +177,11 @@ class test{
 
 > 参考[勾陈安全实验室](http://www.polaris-lab.com/index.php/archives/453/)
 
+## 防御思路
+
+思路一：类的白名单校验机制，对所有传入的反序列化对象，再反序列化过程开始前对雷鸣进行检查，不符合白名单的类不进行反序列化操作。
+
+思路二：禁止Runtime.exec的执行，这个思路可以通过扩展SecurityManager实现。
+
 
 
