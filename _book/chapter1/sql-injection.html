@@ -1,0 +1,735 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SQL Injection · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="csrf.html" />
+    
+    
+    <link rel="prev" href="xss.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter1.html">
+            
+                <a href="../chapter1.html">
+            
+                    
+                    WebSecurity
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="webji-chu.html">
+            
+                <a href="webji-chu.html">
+            
+                    
+                    Web基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="owasp-top-10.html">
+            
+                <a href="owasp-top-10.html">
+            
+                    
+                    OWASP TOP 10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="xss.html">
+            
+                <a href="xss.html">
+            
+                    
+                    XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="sql-injection.html">
+            
+                <a href="sql-injection.html">
+            
+                    
+                    SQL Injection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="csrf.html">
+            
+                <a href="csrf.html">
+            
+                    
+                    CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="ssrf.html">
+            
+                <a href="ssrf.html">
+            
+                    
+                    SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="fan-xu-lie-hua-lou-dong.html">
+            
+                <a href="fan-xu-lie-hua-lou-dong.html">
+            
+                    
+                    反序列化漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="xxe.html">
+            
+                <a href="xxe.html">
+            
+                    
+                    XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="phpan-quan.html">
+            
+                <a href="phpan-quan.html">
+            
+                    
+                    PHP安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="csp.html">
+            
+                <a href="csp.html">
+            
+                    
+                    CSP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="ssti.html">
+            
+                <a href="ssti.html">
+            
+                    
+                    SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../algorithm.html">
+            
+                <a href="../algorithm.html">
+            
+                    
+                    Algorithm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../algorithm/dong-tai-gui-hua.html">
+            
+                <a href="../algorithm/dong-tai-gui-hua.html">
+            
+                    
+                    动态规划
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.html">
+            
+                <a href="../algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.html">
+            
+                    
+                    最长公共子序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../algorithm/dong-tai-gui-hua/bei-bao-wen-ti.html">
+            
+                <a href="../algorithm/dong-tai-gui-hua/bei-bao-wen-ti.html">
+            
+                    
+                    背包问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../algorithm/lian-biao.html">
+            
+                <a href="../algorithm/lian-biao.html">
+            
+                    
+                    链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../algorithm/shu.html">
+            
+                <a href="../algorithm/shu.html">
+            
+                    
+                    树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ios.html">
+            
+                <a href="../ios.html">
+            
+                    
+                    iOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../android.html">
+            
+                <a href="../android.html">
+            
+                    
+                    Android
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../java.html">
+            
+                <a href="../java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/jvm-yuan-li.html">
+            
+                <a href="../java/jvm-yuan-li.html">
+            
+                    
+                    JVM 原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../java/java-io.html">
+            
+                <a href="../java/java-io.html">
+            
+                    
+                    Java IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../java/java-duo-xian-cheng.html">
+            
+                <a href="../java/java-duo-xian-cheng.html">
+            
+                    
+                    Java 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../java/java-wang-luo-bian-cheng.html">
+            
+                <a href="../java/java-wang-luo-bian-cheng.html">
+            
+                    
+                    Java 网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../java/spring-kuang-jia.html">
+            
+                <a href="../java/spring-kuang-jia.html">
+            
+                    
+                    Spring 框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../java/mybatis-kuang-jia.html">
+            
+                <a href="../java/mybatis-kuang-jia.html">
+            
+                    
+                    MyBatis 框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../java/struts-kuang-jia.html">
+            
+                <a href="../java/struts-kuang-jia.html">
+            
+                    
+                    Struts 框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../java/tomcat-kuang-jia.html">
+            
+                <a href="../java/tomcat-kuang-jia.html">
+            
+                    
+                    Tomcat 框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SQL Injection</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sql-injection">SQL Injection</h1>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>SQL Injection&#xFF0C;&#x5373;SQL&#x6CE8;&#x5165;&#xFF0C;&#x662F;&#x6307;&#x653B;&#x51FB;&#x8005;&#x5229;&#x7528;&#x670D;&#x52A1;&#x7AEF;&#x5BF9;&#x7528;&#x6237;&#x8F93;&#x5165;&#x5904;&#x7406;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x8F93;&#x5165;&#x4E00;&#x4E9B;SQL&#x4EE3;&#x7801;&#xFF0C;&#x901A;&#x8FC7;&#x95ED;&#x5408;&#x5F15;&#x53F7;&#x7B49;&#x624B;&#x6BB5;&#x4F7F;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;SQL&#x8BED;&#x53E5;&#x800C;&#x6267;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x9020;&#x6210;&#x653B;&#x51FB;&#x8005;&#x5BF9;&#x76EE;&#x6807;&#x6570;&#x636E;&#x5E93;&#x7684;&#x975E;&#x6388;&#x6743;&#x8BBF;&#x95EE;&#xFF0C;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x6570;&#x636E;&#x6CC4;&#x9732;&#x3001;&#x635F;&#x6BC1;&#x3001;&#x7BE1;&#x6539;&#x7B49;&#x3002;</p>
+<h2 id="&#x59FF;&#x52BF;">&#x59FF;&#x52BF;</h2>
+<h3 id="&#x9519;&#x8BEF;&#x56DE;&#x663E;&#x6CE8;&#x5165;">&#x9519;&#x8BEF;&#x56DE;&#x663E;&#x6CE8;&#x5165;</h3>
+<p>&#x5982;&#x679C;Web&#x670D;&#x52A1;&#x5668;&#x5F00;&#x542F;&#x4E86;&#x9519;&#x8BEF;&#x56DE;&#x663E;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x62A5;&#x9519;&#x56DE;&#x663E;&#x53EF;&#x4EE5;&#x63A8;&#x7406;SQL&#x903B;&#x8F91;&#x4ECE;&#x800C;&#x5F88;&#x5BB9;&#x6613;&#x6784;&#x9020;Payload&#x3002;</p>
+<h3 id="&#x76F2;&#x6CE8;">&#x76F2;&#x6CE8;</h3>
+<p>&#x591A;&#x6570;&#x65F6;&#x5019;Web&#x670D;&#x52A1;&#x5668;&#x5E76;&#x4E0D;&#x4F1A;&#x63D0;&#x4F9B;&#x9519;&#x8BEF;&#x7684;&#x56DE;&#x663E;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x501F;&#x7528;&#x76F2;&#x6CE8;&#x7684;&#x6280;&#x5DE7;&#x3002;</p>
+<p>&#x5728;&#x76F2;&#x6CE8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x624B;&#x6BB5;&#x6765;&#x786E;&#x8BA4;&#x8F93;&#x5165;&#x7684;Payload&#x6240;&#x4EA7;&#x751F;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x800C;&#x89C2;&#x5BDF;&#x9875;&#x9762;&#x7684;&#x53D8;&#x5316;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x53C2;&#x7167;&#xFF0C;&#x6BD4;&#x5982;&#x4EE5;&#x4E0B;Payload&#xFF1A;</p>
+<pre><code class="lang-js">&#x4E1A;&#x52A1;URL&#xFF1A;http:<span class="hljs-comment">//example.com/news.php?id=10</span>
+SQL&#x903B;&#x8F91;&#xFF1A;SELECT title, description, body FROM news WHERE id = <span class="hljs-number">10</span>
+
+&#x653B;&#x51FB;Payload: ?id=<span class="hljs-number">10</span> and <span class="hljs-number">1</span>=<span class="hljs-number">2</span>&#xFF0C;&#x9020;&#x6210;&#x67E5;&#x8BE2;&#x4E3A;&#x7A7A;&#xFF0C;&#x9875;&#x9762;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;
+</code></pre>
+<p>&#x5F53;&#x7136;&#x4EE5;&#x4E0A;Payload&#x663E;&#x793A;&#x7684;&#x9875;&#x9762;&#x5F02;&#x5E38;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x670D;&#x52A1;&#x7AEF;&#x68C0;&#x6D4B;&#x5230;&#x4E86;&#x975E;&#x6CD5;Payload&#x800C;&#x505A;&#x4E86;&#x5904;&#x7406;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6240;&#x4EE5;&#x786E;&#x8BA4;&#x6CE8;&#x5165;&#x70B9;&#x8FD8;&#x9700;&#x8981;&#x540E;&#x9762;&#x7684;&#x6B65;&#x9AA4;&#x3002;</p>
+<pre><code class="lang-js">?id = <span class="hljs-number">10</span> and <span class="hljs-number">1</span>=<span class="hljs-number">1</span>&#x8FD4;&#x56DE;&#x9875;&#x9762;&#x6B63;&#x5E38;&#x8BF4;&#x660E;&#x786E;&#x5B9E;&#x6709;&#x95EE;&#x9898;&#x3002;
+</code></pre>
+<h3 id="timing-attack">Timing Attack</h3>
+<p>&#x901A;&#x8FC7;&#x6CE8;&#x5165;&#x4E00;&#x4E9B;&#x6267;&#x884C;&#x8D77;&#x6765;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x7684;SQL&#x8BED;&#x53E5;&#xFF0C;&#x89C2;&#x5BDF;Web&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#x53D8;&#x5316;&#x4E5F;&#x53EF;&#x4EE5;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#x3002;</p>
+<p>&#x5E38;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p>
+<p>MySQL&#xFF1A;</p>
+<pre><code>benchmark(times,function)&#xFF0C;benchmark&#x67D0;&#x4E2A;&#x51FD;&#x6570;function times&#x6B21;&#x6570;
+&#x5982;benchmark(1000000, encode(&apos;hello&apos;,&apos;goodbye&apos;))
+sleep(seconds)&#xFF0C;&#x4F11;&#x7720;seconds&#x79D2;&#x3002;
+</code></pre><p>&#x4E3E;&#x4F8B;&#x4E00;&#x4E2A;Payload&#xFF1A;</p>
+<pre><code>10 union select if(substring(current,1,1)=char(119),benchmark(5000000,md5(1)) from (select database() as current) as tbl;
+</code></pre><h2 id="&#x6570;&#x636E;&#x5E93;&#x653B;&#x51FB;&#x6280;&#x5DE7;">&#x6570;&#x636E;&#x5E93;&#x653B;&#x51FB;&#x6280;&#x5DE7;</h2>
+<h3 id="&#x4FBF;&#x5229;&#x51FD;&#x6570;">&#x4FBF;&#x5229;&#x51FD;&#x6570;</h3>
+<p>database() - &#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x3002;</p>
+<p>system_user() - &#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x3002;</p>
+<p>current_user() - &#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x3002;</p>
+<p>version() - &#x6570;&#x636E;&#x5E93;&#x7248;&#x672C;&#x53F7;&#x3002;</p>
+<h3 id="&#x5E38;&#x89C1;&#x6280;&#x5DE7;">&#x5E38;&#x89C1;&#x6280;&#x5DE7;</h3>
+<p>&#x731C;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x7248;&#x672C;&#xFF1A;?id = 5 and substring(@@version,1,1)=4</p>
+<p>&#x5224;&#x65AD;&#x8868;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF1A;?id = 5 union all select 1,2,3 from &#x8868;&#x540D;</p>
+<p>&#x5224;&#x65AD;&#x8868;&#x4E2D;&#x67D0;&#x5217;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF1A;?id = 5 union all select 1,2,&#x5217;&#x540D; from &#x67D0;&#x8868;</p>
+<p>&#x5177;&#x4F53;&#x731C;&#x89E3;&#x5217;&#x4E2D;&#x6570;&#x636E;&#xFF1A;?id = 5 and ascii(substring((select passwd from admin limit 0,1),1,1)&gt;64) <strong>&#x4E8C;&#x5206;&#x6CD5;</strong></p>
+<p>&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF1A;?id = 5 union select 1,2,load_file(&apos;/etc/passwd&apos;) <strong>&#x9700;&#x8981;&#x8BFB;&#x6743;&#x9650;</strong></p>
+<p>&#x5199;&#x6587;&#x4EF6;&#xFF1A;?id = 5 union select ... into outfile &apos;/file&apos; &#x6216;&#x8005; into dumpfile &apos;file&apos;&#xFF0C;dumpfile&#x76F8;&#x6BD4;outfile&#x66F4;&#x9002;&#x5408;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x3002;</p>
+<h3 id="&#x653B;&#x51FB;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;">&#x653B;&#x51FB;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</h3>
+<p>&#x5982;sqlserver&#x4E2D;&#x7684;<code>xp_cmdshell</code>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x3002;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x4E00;&#x822C;&#x63D0;&#x524D;&#x5B9A;&#x4E49;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>call</code>&#x6216;&#x8005;<code>execute</code>&#x8C03;&#x7528;&#x3002;</p>
+<h3 id="&#x7F16;&#x7801;&#x5229;&#x7528;">&#x7F16;&#x7801;&#x5229;&#x7528;</h3>
+<p>&#x5F53;&#x6570;&#x636E;&#x5E93;&#x4F7F;&#x7528;&#x5BBD;&#x5B57;&#x8282;&#x7F16;&#x7801;&#x65F6;&#xFF0C;Web&#x8BED;&#x8A00;&#x53EF;&#x80FD;&#x8003;&#x8651;&#x4E0D;&#x5230;&#xFF0C;&#x4F1A;&#x5C06;&#x53CC;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x8BA4;&#x4E3A;&#x662F;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x800C;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A;&#x4E86;&#x5B89;&#x5168;&#x8D77;&#x89C1;&#xFF0C;&#x4F1A;&#x5F00;&#x542F;<code>magic_quotes_gpc</code>&#x6216;&#x8005;&#x4F7F;&#x7528;<code>addslashes()</code>&#x51FD;&#x6570;&#x5BF9;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#xFF0C;&#x6BD4;&#x5982;&#x5355;&#x5F15;&#x53F7;&#x548C;&#x53CC;&#x5F15;&#x53F7;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#x5355;&#x5F15;&#x53F7;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;<code>0x27</code>&#xFF0C;&#x53CD;&#x659C;&#x7EBF;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;<code>0x5c</code>&#xFF0C;&#x5F53;&#x653B;&#x51FB;&#x8005;&#x8F93;&#x5165;<code>0xbf27 or 1=1</code>&#x65F6;&#xFF0C;Web&#x7AEF;&#x4F1A;&#x5C06;&#x8BA4;&#x4E3A;<code>0xbf27</code>&#x662F;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x7ECF;&#x8FC7;&#x8F6C;&#x4E49;&#xFF0C;&#x5C31;&#x53D8;&#x6210;&#x4E86;<code>0xbf5c27</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5C31;&#x4F1A;&#x88AB;&#x4EA4;&#x9001;&#x6570;&#x636E;&#x5E93;&#x5904;&#x7406;&#x3002;&#x800C;&#x5728;&#x53CC;&#x5B57;&#x8282;&#x7F16;&#x7801;&#x7684;&#x6570;&#x636E;&#x5E93;&#x770B;&#x6765;&#xFF0C;<code>0xbf5c</code>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6C49;&#x5B57;&#xFF0C;&#x4E8E;&#x662F;&#x653B;&#x51FB;&#x8005;&#x6210;&#x529F;&#x201C;&#x5403;&#x6389;&#x4E86;&#x201D;&#x53CD;&#x659C;&#x7EBF;&#x5E76;&#x95ED;&#x5408;&#x53CC;&#x5F15;&#x53F7;&#x3002;</p>
+<h3 id="&#x653B;&#x51FB;&#x601D;&#x8DEF;">&#x653B;&#x51FB;&#x601D;&#x8DEF;</h3>
+<p>&#x9996;&#x5148;&#x786E;&#x8BA4;&#x6CE8;&#x5165;&#x70B9;&#x5B58;&#x5728;</p>
+<p>&#x901A;&#x8FC7;&#x6CE8;&#x5165;&#x70B9;&#x5C1D;&#x8BD5;&#x6536;&#x96C6;&#x670D;&#x52A1;&#x7AEF;SQL&#x4FE1;&#x606F;&#x5982;version()&#x3001;current_user()&#x3002;</p>
+<p><strong>&#x786E;&#x8BA4;&#x5217;&#x6570;</strong></p>
+<pre><code>?id = -999 union select 1,2,3,4,5    // &#x901A;&#x8FC7;&#x4E8C;&#x5206;&#x6CD5;&#x786E;&#x8BA4;&#x957F;&#x5EA6;
+</code></pre><p><strong>&#x786E;&#x8BA4;&#x6240;&#x6709;&#x5E93;</strong></p>
+<pre><code>?id = -999 union select 1,2,3,4,group_concat(distinct(table_schema)) from information_schema.tables
+</code></pre><p><strong>&#x786E;&#x8BA4;&#x6240;&#x6709;&#x8868;</strong></p>
+<pre><code>?id = -999 union select 1,2,3,4,group_concat(distinct(table_name)) from information_schema.tables where table_schema=database();
+</code></pre><p><strong>&#x786E;&#x8BA4;&#x67D0;&#x8868;&#x6240;&#x6709;&#x5217;</strong></p>
+<pre><code>?id = -999 union select 1,2,3,4,group_concat(distinct(column_name)) from information_schema.columns where table_name=&quot;table&quot;;
+</code></pre><p><strong>&#x63D0;&#x53D6;&#x6570;&#x636E;</strong></p>
+<p>&#x505A;&#x76F8;&#x5E94;&#x67E5;&#x8BE2;&#x3002;</p>
+<h3 id="&#x9632;&#x5FA1;">&#x9632;&#x5FA1;</h3>
+<h4 id="&#x4F7F;&#x7528;&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;">&#x4F7F;&#x7528;&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;</h4>
+<p>&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;&#x4E8B;&#x5B9E;&#x4E0A;&#x662F;&#x5BF9;&#x53D8;&#x91CF;&#x7684;&#x4E00;&#x79CD;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E3E;&#x4F8B;Java&#x4E2D;&#x7684;&#x9884;&#x7F16;&#x8BD1;&#xFF1A;</p>
+<pre><code class="lang-java">String custname = request.getParameter(<span class="hljs-string">&quot;customerName&quot;</span>); <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x7684;custname&#x9700;&#x8981;&#x597D;&#x597D;&#x88AB;&#x68C0;&#x67E5;</span>
+<span class="hljs-comment">// custname&#x7684;&#x68C0;&#x67E5;</span>
+String query = <span class="hljs-string">&quot;SELECT account_balance FROM user_data WHERE username = ?&quot;</span>;
+
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setString(<span class="hljs-number">1</span>,custname);
+ResultSet results = pstmt.executeQuery();
+</code></pre>
+<p>&#x5728;<code>query</code>&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5229;&#x7528;<code>?</code>&#x66FF;&#x4EE3;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF0C;&#x4F7F;&#x5F97;&#x653B;&#x51FB;&#x8005;&#x65E0;&#x6CD5;&#x6539;&#x53D8;SQL&#x903B;&#x8F91;&#xFF0C;&#x5373;&#x4FBF;&#x662F;&#x63D2;&#x5165;&#x4E86;<code>abc&apos; or &apos;1&apos;=&apos;1</code>&#x5C1D;&#x8BD5;&#x95ED;&#x5408;&#x5F15;&#x53F7;&#x4E5F;&#x53EA;&#x4F1A;&#x88AB;&#x5F53;&#x505A;username&#x7684;&#x53C2;&#x6570;&#x6267;&#x884C;&#x3002;&#x518D;&#x4E3E;&#x4E00;&#x4E2A;PHP&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-php">$query = <span class="hljs-string">&quot;INSERT INTO myCity (Name, CountryCode, District) VALUES (?,?,?)&quot;</span>;
+$stmt = $mysqli-&gt;prepare($qeury);
+$stmt-&gt;bind_param(<span class="hljs-string">&quot;sss&quot;</span>,$var1,$var2,$var3);
+$val1 = <span class="hljs-string">&apos;var1&apos;</span>;
+$val2 = <span class="hljs-string">&apos;var2&apos;</span>;
+$val3 = <span class="hljs-string">&apos;var3&apos;</span>;
+$stmt-&gt;execute();
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x5BF9;&#x8F93;&#x5165;&#x53D8;&#x91CF;&#x4E0E;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x7684;&#x7ED1;&#x5B9A;&#xFF0C;&#x5C06;&#x7279;&#x5B9A;&#x7684;&#x8F93;&#x5165;&#x9650;&#x5236;&#x5728;&#x53C2;&#x6570;&#x5185;&#xFF0C;&#x4E0D;&#x4F1A;&#x4F7F;&#x5F97;SQL&#x8BED;&#x4E49;&#x4EA7;&#x751F;&#x53D8;&#x5316;&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;">&#x4F7F;&#x7528;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</h4>
+<p>Java&#x4E2D;&#x4F7F;&#x7528;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-java">String custname = request.getParameter(<span class="hljs-string">&quot;customerName&quot;</span>); <span class="hljs-comment">// check please</span>
+<span class="hljs-keyword">try</span>{
+    CallableStatement cs = connection.prepareCall(<span class="hljs-string">&quot;{call sp_getAccountBalance(?)}&quot;</span>);
+    cs.setString(<span class="hljs-number">1</span>, custname);
+    ResultSet results = cs.executeQuery();
+} <span class="hljs-keyword">catch</span> (SQLException se) {
+    <span class="hljs-comment">// log error</span>
+}
+</code></pre>
+<p>&#x5BF9;&#x6BD4;&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;&#x7684;&#x4F7F;&#x7528;&#x53D1;&#x73B0;&#x6709;&#x4E9B;&#x7C7B;&#x4F3C;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x9884;&#x5148;&#x5B9A;&#x4E49;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;<code>sp_getAccountBalance(?)</code>&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;<code>call</code>&#x8C03;&#x7528;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x53D8;&#x91CF;&#x7ED1;&#x5B9A;&#x3002;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x907F;&#x514D;&#x5728;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x52A8;&#x6001;SQL&#x8BED;&#x53E5;&#xFF0C;&#x5426;&#x5219;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;SQL&#x6CE8;&#x5165;&#x3002;</p>
+<h4 id="&#x68C0;&#x67E5;&#x6570;&#x636E;&#x7C7B;&#x578B;">&#x68C0;&#x67E5;&#x6570;&#x636E;&#x7C7B;&#x578B;</h4>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;SQL&#x67E5;&#x8BE2;&#x9700;&#x8981;&#x7684;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x578B;&#x7684;id&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9650;&#x5236;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x8FC7;&#x6EE4;&#x6389;&#x5927;&#x90E8;&#x5206;&#x653B;&#x51FB;&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x7684;&#x51FD;&#x6570;">&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x7684;&#x51FD;&#x6570;</h4>
+<p>&#x5404;&#x79CD;Web&#x8BED;&#x8A00;&#x90FD;&#x4F1A;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x7F16;&#x7801;&#x51FD;&#x6570;&#xFF0C;&#x5E2E;&#x52A9;&#x5BF9;&#x6297;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x653B;&#x51FB;&#xFF0C;&#x6BD4;&#x5982;<code>addslashes()</code>&#xFF0C;<code>mysql_real_escape_string()</code>&#x4EE5;&#x53CA;<code>mysql_escape_string()</code>&#x7B49;&#x7B49;&#x3002;&#x4E2D;&#x95F4;&#x51FD;&#x6570;&#x8003;&#x8651;&#x5230;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x56E0;&#x6B64;&#x76F8;&#x6BD4;&#x5176;&#x4ED6;&#x4E24;&#x79CD;&#x6BD4;&#x8F83;&#x4E0D;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x6B3E;&#x5B57;&#x8282;&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#x3002;&#x57FA;&#x672C;&#x4E0A;&#x5C31;&#x662F;&#x5BF9;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x5229;&#x7528;&#x53CD;&#x659C;&#x6760;&#x8F6C;&#x4E49;&#x5904;&#x7406;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="xss.html" class="navigation navigation-prev " aria-label="Previous page: XSS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="csrf.html" class="navigation navigation-next " aria-label="Next page: CSRF">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SQL Injection","level":"1.2.4","depth":2,"next":{"title":"CSRF","level":"1.2.5","depth":2,"path":"chapter1/csrf.md","ref":"chapter1/csrf.md","articles":[]},"previous":{"title":"XSS","level":"1.2.3","depth":2,"path":"chapter1/xss.md","ref":"chapter1/xss.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","livereload"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/sql-injection.md","mtime":"2019-08-16T01:24:30.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-20T09:01:38.037Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
