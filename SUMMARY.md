@@ -12,6 +12,7 @@
   * [XXE](chapter1/xxe.md)
   * [PHP安全](chapter1/phpan-quan.md)
   * [CSP](chapter1/csp.md)
+  * [SSTI](chapter1/ssti.md)
 * [Algorithm](algorithm.md)
   * [动态规划](algorithm/dong-tai-gui-hua.md)
     * [最长公共子序列](algorithm/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.md)
