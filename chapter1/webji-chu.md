@@ -8,9 +8,9 @@ Session: 存储于服务器，大小一般来说没有上限，可以存出任�
 
 **Cookie策略**：Cookie一般分为两种：Session Cookie和Third-party Cookie，前者可以看做是临时Cookie，后者则是本地Cookie，可以保存。Third-party Cookie由服务器设定了过期时间，这种Cookie被保存在本地，当时间超过设定后才会过期失效；而Session Cookie则没有被指定过期时间，关掉浏览器Session Cookie就会被销毁。在有些浏览器中会禁止Third-party Cookie的跨域访问。
 
-## HTTPS原理
+## 0x01 HTTPS原理
 
-## SOP
+## 0x02 SOP
 
 SOP，Same Origin Policy，即同源策略。浏览器的同源策略，限制了来自不同**源**的"document"或脚本，对当前"document"读取或设置某些属性。
 
@@ -20,9 +20,13 @@ SOP，Same Origin Policy，即同源策略。浏览器的同源策略，限制�
 
 **可以跨域加载资源的标签**
 
-**`<script>`、`<img>`、`<iframe>`、`<link>`，他们都通过`src`属性加载跨域资源，实际上就是一次GET请求。但是对于通过`src`属性加载的资源，浏览器限制了JavaScript的权限，使其不能够读、写返回的内容。**
+`<script>`**、**`<img>`**、**`<iframe>`**、**`<link>`**，他们都通过**`src`**属性加载跨域资源，实际上就是一次GET请求。但是对于通过**`src`**属性加载的资源，浏览器限制了JavaScript的权限，使其不能够读、写返回的内容。**
 
-## Web目录信息获取
+## 0x03 Web目录信息获取
+
+
+
+## 0x04
 
 
 
