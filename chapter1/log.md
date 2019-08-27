@@ -29,6 +29,15 @@ TCP safe reset：客户端首先正常和防火墙连接，连接成功后防火
 
 > 参考[JavaScript Prototype 污染攻击](https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html)
 
+需要掌握以下几个问题：
+
+1. JS类的定义
+2. JS中的`prototype`、\`proto\`关键字。
+3. JS中类的继承如何实现。
+4. JS中的原型链。
+5. JS原型链污染的原因。
+6. JS原型链污染的场景举例。
+
 ## 问题四、limit、order by的注入
 
 ## 问题五、
