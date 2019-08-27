@@ -40,7 +40,13 @@ TCP safe reset：客户端首先正常和防火墙连接，连接成功后防火
 
 ## 问题四、limit、order by的注入
 
-limit后面可以接procedure analyse查询。
+limit后面可以接procedure analyse查询。举例：
+
+```
+procedure analyse(extractvalue(rand(),concat(0x3a,version())),1)
+```
+
+这里同样也可以用time盲注，`extractvalue`也可以用`updatexml`代替，注意盲注不能用sleep。
 
 ## 问题五、RPO 相对路径覆盖
 
