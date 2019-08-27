@@ -48,6 +48,10 @@ procedure analyse(extractvalue(rand(),concat(0x3a,version())),1)
 
 这里同样也可以用time盲注，`extractvalue`也可以用`updatexml`代替，注意盲注不能用sleep。
 
+
+
+order by注入这里参考[ MySQL Order By 注入总结](https://www.secpulse.com/archives/57197.html)
+
 ## 问题五、RPO 相对路径覆盖
 
 这是一种利用相对URL路径覆盖目标文件的攻击手段。它依赖于浏览器和服务器的反应，基于服务器的Web缓存技术和配置差异，以及服务器与客户端浏览器的解析差异，利用前端代码中加载的`css/js`相对路径来加载其他文件，最终将服务器返回的不是`css/js`的文件当做`css/js`文件来解析，从而导致XSS、信息泄露动问题的产生。
