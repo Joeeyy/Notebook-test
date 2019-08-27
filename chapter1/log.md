@@ -29,8 +29,6 @@ TCP safe reset：客户端首先正常和防火墙连接，连接成功后防火
 
 > 参考[JavaScript Prototype 污染攻击](https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html)
 
-
-
 ## 问题四、limit、order by的注入
 
 ## 问题五、
