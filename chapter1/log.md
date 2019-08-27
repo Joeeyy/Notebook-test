@@ -48,9 +48,16 @@ procedure analyse(extractvalue(rand(),concat(0x3a,version())),1)
 
 这里同样也可以用time盲注，`extractvalue`也可以用`updatexml`代替，注意盲注不能用sleep。
 
-
-
 order by注入这里参考[ MySQL Order By 注入总结](https://www.secpulse.com/archives/57197.html)
+
+构造条件语句`?order=IF(1=1,1,2)`
+
+1. 利用报错
+2. 利用regexp
+3. 利用updatexml
+4. 利用extractvalue
+
+等等。
 
 ## 问题五、RPO 相对路径覆盖
 
