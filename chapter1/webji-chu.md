@@ -10,6 +10,8 @@ Session: 存储于服务器，大小一般来说没有上限，可以存出任�
 
 ## 0x01 HTTPS原理
 
+参考[HTTPS连接过程以及中间人劫持](https://blog.csdn.net/hbdatouerzi/article/details/71440206)
+
 ## 0x02 SOP
 
 SOP，Same Origin Policy，即同源策略。浏览器的同源策略，限制了来自不同**源**的"document"或脚本，对当前"document"读取或设置某些属性。
@@ -23,8 +25,6 @@ SOP，Same Origin Policy，即同源策略。浏览器的同源策略，限制�
 `<script>`**、**`<img>`**、**`<iframe>`**、**`<link>`**，他们都通过**`src`**属性加载跨域资源，实际上就是一次GET请求。但是对于通过**`src`**属性加载的资源，浏览器限制了JavaScript的权限，使其不能够读、写返回的内容。**
 
 ## 0x03 Web目录信息获取
-
-
 
 ## 0x04
 
