@@ -32,7 +32,5 @@ session意为会话，是客户端与服务器之间的通讯状态的一种保�
 
 ### 1. session工作流程
 
-php中一般使用语句`session_start`表示一次会话的开始，
-
-
+php中一般使用语句`session`_`start表示一次会话的开始，在会话开始后，PHP会尝试从请求中寻找session id，该id一般保存在请求的cookie中，偶尔可能出现在GET、POST参数中。如果PHP未能发现session id，则会调用函数`_
 
