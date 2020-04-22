@@ -28,9 +28,65 @@ SOP，Same Origin Policy，即同源策略。浏览器的同源策略，限制�
 
 ## 0x04 PHP Session序列化的有关知识
 
+> 参考 [https://xz.aliyun.com/t/6640](https://xz.aliyun.com/t/6640)
+
 session意为会话，是客户端与服务器之间的通讯状态的一种保存机制，所谓通讯状态，其中更为关键的便是身份认证信息。其主要区别于cookie的特征便是**session会保存在服务器端**。session存储单一用户的信息，且该信息可以在该站点的所有页面使用。
 
 ### 1. session工作流程
 
-php中一般使用语句`session_start`表示一次会话的开始，在会话开始后，PHP会尝试从请求中寻找session id，该id一般保存在请求的cookie中，偶尔可能出现在GET、POST参数中。如果PHP未能发现session id，则会调用函数`phpSessionCreateId`函数创建一个新的session，并通过HTTP响应头部的set-cookie告知客户端。但是浏览器允许设置禁止cookie，在这种情况下，php可以将session id设置在url参数中或者页面表格中设置为隐藏的参数中，这需要在`php.ini`文件中或者在运行过程中调用`iniSet`设置`session.useTransSid`为开启。
+php中一般使用语句`sessionStart`表示一次会话的开始，在会话开始后，PHP会尝试从请求中寻找session id，该id一般保存在请求的cookie中，偶尔可能出现在GET、POST参数中。如果PHP未能发现session id，则会调用函数`phpSessionCreateId`函数创建一个新的session，并通过HTTP响应头部的set-cookie告知客户端。但是浏览器允许设置禁止cookie，在这种情况下，php可以将session id设置在url参数中或者页面表格中设置为隐藏的参数中，这需要在`php.ini`文件中或者在运行过程中调用`iniSet`设置`session.useTransSid`为开启。
+
+在会话开始后，可以通过PHP将会话的数据保存在`$SESSION`变量中，在PHP停止时，会读取$SESSION中的内容并在对其进行序列化后发送给会话保存管理器进行保存。至于序列化具体承担者是谁，可以通过配置`session.saveHandler`进行设置，一般会将会话数据保存在配置`session.savePath`指定的路径下。
+
+### 2. PHP session 存储机制
+
+PHP会话保存机制由`session.serializeHandler`定义，默认以文件形式进行存储，且文件多以`sessSessionid`命名，文件的内容为会话序列化之后的字符串。
+
+`session.serializeHandler`可以定义的保存机制有三种：php、php\_binary和php\_serialize，下面详细介绍这三种存储机制。
+
+#### php
+
+键名+竖线+经过serialize\(\)函数序列化处理之后的值。
+
+#### php\_binary
+
+键名的长度对应的ASCII字符+键名+经过serialize\(\)函数序列化处理之后的值。
+
+#### php\_serialize
+
+经过serialize\(\)函数序列化处理之后的值。
+
+前两个机制较旧，其会话索引既不能是数字也不能包含字符"\|"和"!"。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
